@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST } from './types';
+import { FETCH_POSTS, NEW_POST, EVENT_RESULTS } from './types';
 
 // The thunk middleware allows us to call the dispatch function directly
 // so that we can make a synchronous request
@@ -21,7 +21,7 @@ export const fetchPosts = () => dispatch => {
 };
 
 export const createPost = (postData) => dispatch => {
-    // console.log('action called');
+    console.log('action called');
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         headers: {
@@ -30,10 +30,30 @@ export const createPost = (postData) => dispatch => {
         body: JSON.stringify(postData)
     })
         // Tell it we want json data
-        .then(res => res.json())
+        .then(res => { 
+            res.json()  
+            console.log("testing") })
+       
         // Make sure we can make a post and get the data back
         .then(post => dispatch({
             type: NEW_POST,
             payload: post
+        }));
+};
+
+export const findEvents = (eventData) => dispatch => {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET_EVENTS',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(eventData)
+    })
+        // Tell it we want json data
+        .then(res => res.json())
+        // Make sure we can make a post and get the data back
+        .then(events => dispatch({
+            type: EVENT_RESULTS,
+            payload: events
         }));
 };
