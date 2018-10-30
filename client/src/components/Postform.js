@@ -7,12 +7,12 @@ class Postform extends Component {
 
     // constructor (props) {
     //     super(props);
-        state = {  
-            title: '',
-            memo: ''
-        };
-        // this.onChange = this.onChange.bind(this);
-        // this.onSubmit = this.onSubmit.bind(this);
+    state = {
+        title: '',
+        body: ''
+    };
+    // this.onChange = this.onChange.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
     // }
 
     onChange = (e) => {
@@ -21,15 +21,15 @@ class Postform extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        
-        const memo = {
+
+        const post = {
             title: this.state.title,
-            memo: this.state.memo
+            body: this.state.body
         };
 
-        this.props.createPost(memo);
+        this.props.createPost(post);
     }
-    
+
     render() {
         return (
             <div>
@@ -37,12 +37,12 @@ class Postform extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label>Title: </label><br />
-                        <input type="text" name="title" onChange={this.onChange} value={this.state.title}/>
+                        <input type="text" name="title" onChange={this.onChange} value={this.state.title} />
                     </div>
                     <br />
                     <div>
                         <label>Idea: </label><br />
-                        <textarea type="text" name="memo" onChange={this.onChange} value={this.state.memo}/>
+                        <textarea type="text" name="body" onChange={this.onChange} value={this.state.body} />
                     </div>
                     <br />
                     <button type="submit">Submit</button>
@@ -54,6 +54,6 @@ class Postform extends Component {
 
 Postform.propTypes = {
     createPost: PropTypes.func.isRequired
-} 
+}
 
 export default connect(null, { createPost })(Postform);
