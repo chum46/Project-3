@@ -3,7 +3,7 @@
 
 import { FETCH_POSTS, NEW_POST } from '../actions/types';
 
-// Initial stat is an object 
+// Initial state is an object 
 const initialState = {
     // items array that represents the posts that come in from our action
     items: [],
