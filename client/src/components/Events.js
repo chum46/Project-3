@@ -2,20 +2,29 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // Connect comes with Provider
 import { connect } from 'react-redux';
-import { fetchEvents } from '../actions/postActions'
+import { findEvents } from '../actions/postActions'
 
 class Events extends Component {
     
     componentWillMount() {
         // calls the action
-        this.props.fetchEvents();
+        this.props.findEvents();
     }  
 
+    componentWillReceiveProps(nextProps) {
+        // When it recieves a new property from the state this will run
+        // this.props.findEvents();
+        if(nextProps.events) {
+            this.props.events.unshift(nextProps.events);
+        }
+    }
+
     render() {
-        const eventItems = this.props.posts.map(event => (
+        console.log(this.props.events);
+        const eventItems = this.props.events.map(event => (
             <div key={event.id}>
-                <h3>{event.title}</h3>
-                <p>{event.body}</p>
+                <h3>{event.name}</h3>
+                <p>{event.url}</p>
             </div>
         ));
         return (
@@ -28,7 +37,7 @@ class Events extends Component {
 }
 
 Events.propTypes = {
-    fetchEvents: PropTypes.func.isRequired,
+    findEvents: PropTypes.func.isRequired,
     events: PropTypes.array.isRequired
 }
 
@@ -37,4 +46,4 @@ const mapStateToProps = state => ({
     events: state.events.items
 });
 
-export default connect(mapStateToProps, { fetchEvents })(Events);
+export default connect(mapStateToProps, { findEvents })(Events);
