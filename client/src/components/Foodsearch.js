@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { findEvents } from '../actions/postActions';
+import { findFood } from '../actions/postActions';
 
-class Eventsearch extends Component {
+class Foodsearch extends Component {
 
     state = {
-        category: "Ticketed Event",
+        category: "Restaurant Search",
         type: '',
         minprice: '',
         maxprice: '',
@@ -21,7 +21,7 @@ class Eventsearch extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const eventParams = {
+        const foodParams = {
             category: this.state.category,
             type: this.state.type,
             minprice: this.state.minprice,
@@ -30,29 +30,30 @@ class Eventsearch extends Component {
             enddate: this.state.enddate
         };
 
-        console.log(eventParams);
-        this.props.findEvents(eventParams.startdate, eventParams.enddate, eventParams.type, eventParams.minprice, eventParams.maxprice);
+        console.log(foodParams);
+        this.props.findFood(foodParams.startdate, foodParams.enddate, foodParams.type, foodParams.minprice, foodParams.maxprice);
     }
 
     render() {
         return (
             <div>
-                <h1>Search Events</h1>
+                <h1>Search Restaurants</h1>
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label>Search Category: </label><br />
                         <select type="text" name="category" onChange={this.onChange} value={this.state.type}>
-                            <option value="event">Ticketed Event</option>
+                            <option value="event">Restaurant Search</option>
                         </select>
                     </div>
                     <div>
-                        <label>Event Type: </label><br />
+                        <label>Cuisine Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
-                            <option value="music">Music</option>
-                            <option value="sports">Sports</option>
-                            <option value="arts">Arts/Theatre</option>
+                            <option value="event">chinese</option>
+                            <option value="event">indian</option>
+                            <option value="event">thai</option>
                         </select>
                     </div>
+                    
                     <div>
                         <label>Start Date: </label><br />
                         <input type="date" name="startdate" onChange={this.onChange} value={this.state.startdate} />
@@ -76,8 +77,8 @@ class Eventsearch extends Component {
     }
 }
 
-Eventsearch.propTypes = {
-    findEvents: PropTypes.func.isRequired
+Foodsearch.propTypes = {
+    findFood: PropTypes.func.isRequired
 }
 
-export default connect(null, { findEvents })(Eventsearch);
+export default connect(null, { findFood })(Foodsearch);
