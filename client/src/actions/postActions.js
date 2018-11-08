@@ -64,7 +64,7 @@ export const createPost = (postData) => dispatch => {
 export const findEvents = (startDate, endDate, type, minPrice, maxPrice) => dispatch => {
     console.log('findEvents action called');
     console.log(startDate + " " + endDate);
-    const ticketmasterAPI = ' ';
+    const ticketmasterAPI = '';
     return axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?city=Chicago&apikey=${ticketmasterAPI}&startDateTime=${startDate}T05:30:00Z&endDateTime=${endDate}T04:30:00Z&size=100`)
         .then(response => dispatch({
             type: FETCH_EVENTS,
