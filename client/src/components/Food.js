@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // Connect comes with Provider
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { findFood } from '../actions/postActions'
 
 class Restaurants extends Component {
-    
+
     componentWillMount() {
         // calls the action
-        this.props.findFood();
-    }  
+        // this.props.findFood();
+    }
 
     componentWillReceiveProps(nextProps) {
         // When it recieves a new property from the state this will run
         // this.props.findFood();
-        if(nextProps.restaurants) {
+        if (nextProps.restaurants) {
             this.props.restaurants.unshift(nextProps.restaurants);
         }
     }
@@ -23,8 +24,12 @@ class Restaurants extends Component {
         console.log(this.props.restaurants);
         const foodItems = this.props.restaurants.map(restaurant => (
             <div key={restaurant.restaurant.id}>
+                <span><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
+                {/* <span><img src={restaurant.restaurant.photos_url} alt=' ' height='100px' width='162px'></img></span> */}
                 <h3>{restaurant.restaurant.name}</h3>
-                <p>{restaurant.restaurant.url}</p>
+                <p>{_.get(restaurant, ['restaurant', 'location', 'address'], 'No address.')}</p>
+                <a href={restaurant.restaurant.url}>Website</a>
+                <hr />
             </div>
         ));
         return (

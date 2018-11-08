@@ -22,10 +22,10 @@ class Events extends Component {
 
     render() {
         console.log(this.props.events);
+        // https://lodash.com/docs/#get this is how we can pull from the props.events object
         const eventItems = this.props.events.map(event => (
             <div key={event.id}>
                 <span><img src={_.get(event, ['images', 0, 'url'], 'No image.')} alt=' ' height='100px' width='162px'></img><h3>{event.name}</h3></span>
-                <h3>{event.name}</h3>
                 <p>{event.url}</p>
                 <p>{_.get(event, ['promoter', 'description'], 'No description.')}</p>
                 <hr />
