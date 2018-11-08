@@ -14,12 +14,12 @@ import Navbar from "./components/NavBar/NavBar";
 import Homepage from "./pages/home/Home";
 import Memopage from "./pages/memo/Memopage";
 import Eventpage from "./pages/event/Eventpage";
+import Foodpage from "./pages/food/Foodpage";
+import Activitypage from "./pages/activity/Activitypage";
 // import NoMatch from "./pages/NoMatch";
 
 import store from './store';
-
-import Card from "./components/cards";
-
+require("dotenv").config();
 
 class App extends Component {
   render() {
@@ -37,9 +37,9 @@ class App extends Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/memos" component={Memopage} />
               <Route exact path="/eventsearch" component={Eventpage} />
+              <Route exact path="/food" component={Foodpage} />
+              <Route exact path="/activities" component={Activitypage} />
             </Switch>
-
-            <Card />
           </div>
           
         </Router>
