@@ -7,7 +7,7 @@ class Foodsearch extends Component {
 
     state = {
         category: "Restaurant Search",
-        type: '',
+        type: '0',
         minprice: '',
         maxprice: '',
         startdate: 'mm/dd/yyyy',
@@ -38,22 +38,23 @@ class Foodsearch extends Component {
         return (
             <div>
                 <h1>Search Restaurants</h1>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} class="event-form">
                     <div>
                         <label>Search Category: </label><br />
                         <select type="text" name="category" onChange={this.onChange} value={this.state.type}>
-                            <option value="event">Restaurant Search</option>
+                            <option value="restaurant">Restaurant Search</option>
                         </select>
                     </div>
                     <div>
                         <label>Cuisine Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
-                            <option value="event">chinese</option>
-                            <option value="event">indian</option>
-                            <option value="event">thai</option>
+                            <option value="0">select</option>
+                            <option value="25">chinese</option>
+                            <option value="148">indian</option>
+                            <option value="95">thai</option>
                         </select>
                     </div>
-                    
+
                     <div>
                         <label>Start Date: </label><br />
                         <input type="date" name="startdate" onChange={this.onChange} value={this.state.startdate} />
@@ -61,11 +62,11 @@ class Foodsearch extends Component {
                     <div>
                         <label>End Date: </label><br />
                         <input type="date" name="enddate" onChange={this.onChange} value={this.state.enddate} />
-
-                        <label><br />Minimum Price: </label><br />
-                        <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
-
-                        <label><br />Maximum Price: </label><br />
+                        <div>
+                            <label>Minimum Price: </label><br />
+                            <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
+                        </div>
+                        <label>Maximum Price: </label><br />
                         <input type="number" name="maxprice" onChange={this.onChange} value={this.state.maxprice} />
                     </div>
 

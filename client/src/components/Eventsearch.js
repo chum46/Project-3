@@ -48,6 +48,7 @@ class Eventsearch extends Component {
                     <div>
                         <label>Event Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
+                            <option value="null">Select</option>
                             <option value="music">Music</option>
                             <option value="sports">Sports</option>
                             <option value="arts">Arts/Theatre</option>
@@ -60,11 +61,11 @@ class Eventsearch extends Component {
                     <div>
                         <label>End Date: </label><br />
                         <input type="date" name="enddate" onChange={this.onChange} value={this.state.enddate} />
-
-                        <label><br />Minimum Price: </label><br />
-                        <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
-
-                        <label><br />Maximum Price: </label><br />
+                        <div>
+                            <label>Minimum Price: </label><br />
+                            <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
+                        </div>
+                        <label>Maximum Price: </label><br />
                         <input type="number" name="maxprice" onChange={this.onChange} value={this.state.maxprice} />
                     </div>
 
