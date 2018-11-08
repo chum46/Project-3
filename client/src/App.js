@@ -19,6 +19,7 @@ import Activitypage from "./pages/activity/Activitypage";
 // import NoMatch from "./pages/NoMatch";
 
 import store from './store';
+import NoMatch from './pages/nomatch/NoMatch';
 require("dotenv").config();
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
               <Route exact path="/eventsearch" component={Eventpage} />
               <Route exact path="/food" component={Foodpage} />
               <Route exact path="/activities" component={Activitypage} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
           

@@ -40,14 +40,8 @@ class Foodsearch extends Component {
                 <h1>Search Restaurants</h1>
                 <form onSubmit={this.onSubmit} class="event-form">
                     <div>
-                        <label>Search Category: </label><br />
-                        <select type="text" name="category" onChange={this.onChange} value={this.state.type}>
-                            <option value="restaurant">Restaurant Search</option>
-                        </select>
-                    </div>
-                    <div>
                         <label>Cuisine Type: </label><br />
-                        <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
+                        <select type="checkbox" name="type" onChange={this.onChange} value={this.state.type}>
                             <option value="0">select</option>
                             <option value="25">chinese</option>
                             <option value="148">indian</option>
@@ -55,20 +49,12 @@ class Foodsearch extends Component {
                         </select>
                     </div>
 
-                    <div>
-                        <label>Start Date: </label><br />
-                        <input type="date" name="startdate" onChange={this.onChange} value={this.state.startdate} />
-                    </div>
-                    <div>
-                        <label>End Date: </label><br />
-                        <input type="date" name="enddate" onChange={this.onChange} value={this.state.enddate} />
                         <div>
                             <label>Minimum Price: </label><br />
                             <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
                         </div>
                         <label>Maximum Price: </label><br />
                         <input type="number" name="maxprice" onChange={this.onChange} value={this.state.maxprice} />
-                    </div>
 
                     <br />
                     <button type="submit">Submit</button>
