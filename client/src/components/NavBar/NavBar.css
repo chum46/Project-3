@@ -1,0 +1,23 @@
+.SimpleTabs{
+    color:white;
+}
+
+#navigation {
+    display: flex;
+}
+
+.nav-link {
+    flex-basis: 25%;
+    text-align: center;
+    padding: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+    color: #134074;
+}
+
+.nav-link:hover, 
+.nav-link:focus {
+    background:#8da9c4;
+    border-radius: 4px;
+    color: #fff;
+}

@@ -18,6 +18,8 @@ import Eventpage from "./pages/event/Eventpage";
 
 import store from './store';
 
+import Card from "./components/cards";
+
 
 class App extends Component {
   render() {
@@ -36,6 +38,8 @@ class App extends Component {
               <Route exact path="/memos" component={Memopage} />
               <Route exact path="/eventsearch" component={Eventpage} />
             </Switch>
+
+            <Card />
           </div>
           
         </Router>
