@@ -38,7 +38,7 @@ class Eventsearch extends Component {
         return (
             <div>
                 <h1>Search Events</h1>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} class="event-form">
                     <div>
                         <label>Search Category: </label><br />
                         <select type="text" name="category" onChange={this.onChange} value={this.state.type}>
