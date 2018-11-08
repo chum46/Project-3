@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // Connect comes with Provider
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { findEvents } from '../actions/postActions'
 
 class Events extends Component {
-    
+
     componentWillMount() {
         // calls the action
         this.props.findEvents();
-    }  
+    }
 
     componentWillReceiveProps(nextProps) {
         // When it recieves a new property from the state this will run
         // this.props.findEvents();
-        if(nextProps.events) {
+        if (nextProps.events) {
             this.props.events.unshift(nextProps.events);
         }
     }
@@ -25,6 +26,7 @@ class Events extends Component {
             <div key={event.id}>
                 <h3>{event.name}</h3>
                 <p>{event.url}</p>
+                <p>{_.get(event, ['promoter', 'description'], 'No promoter.')}</p>
             </div>
         ));
         return (
