@@ -48,6 +48,7 @@ class Eventsearch extends Component {
                     <div>
                         <label>Event Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
+                            <option value="default">Select</option>
                             <option value="music">Music</option>
                             <option value="sports">Sports</option>
                             <option value="arts">Arts/Theatre</option>
