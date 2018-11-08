@@ -32,3 +32,32 @@
     transform: rotate(360deg);
   }
 }
+
+.event-form {
+  padding: 15px;
+  font-size: 1.4rem;
+}
+
+.event-form input,
+.event-form label,
+.event-form select,
+.event-form button {
+  margin: 10px 0;
+}
+
+
+.event-form input,
+.event-form label,
+.event-form select,
+.event-form button {
+  min-height: 30px;
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.event-form button {
+  background: teal;
+  border-radius: 4px;
+  color: #fff;
+}
