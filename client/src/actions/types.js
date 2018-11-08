@@ -1,3 +1,5 @@
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const NEW_POST = 'NEW_POST';
-export const EVENT_RESULTS = 'EVENT_RESULTS';
+export const FETCH_EVENTS = 'FETCH_EVENTS';
+export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
+export const FETCH_ACTIVITIES = 'FETCH_ACTIVITIES';
