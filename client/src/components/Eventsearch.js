@@ -40,12 +40,6 @@ class Eventsearch extends Component {
                 <h1>Search Events</h1>
                 <form onSubmit={this.onSubmit} class="event-form">
                     <div>
-                        <label>Search Category: </label><br />
-                        <select type="text" name="category" onChange={this.onChange} value={this.state.type}>
-                            <option value="event">Ticketed Event</option>
-                        </select>
-                    </div>
-                    <div>
                         <label>Event Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
                             <option value="null">Select</option>
@@ -55,7 +49,7 @@ class Eventsearch extends Component {
                         </select>
                     </div>
                     <div>
-                        <label>Start Date: </label><br />
+                        <label className="testStartDate">Start Date: </label><br />
                         <input type="date" name="startdate" onChange={this.onChange} value={this.state.startdate} />
                     </div>
                     <div>
