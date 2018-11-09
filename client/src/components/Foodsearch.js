@@ -38,26 +38,22 @@ class Foodsearch extends Component {
         return (
             <div>
                 <h1>Search Restaurants</h1>
-                <form onSubmit={this.onSubmit} class="event-form">
-                    <div>
+                <form onSubmit={this.onSubmit} className="event-form">
+                    <div className="card">
                         <label>Cuisine Type: </label><br />
-                        <select type="checkbox" name="type" onChange={this.onChange} value={this.state.type}>
+                        <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
                             <option value="0">select</option>
                             <option value="25">chinese</option>
                             <option value="148">indian</option>
                             <option value="95">thai</option>
-                        </select>
-                    </div>
-
-                        <div>
-                            <label>Minimum Price: </label><br />
-                            <input type="number" name="minprice" onChange={this.onChange} value={this.state.minprice} />
-                        </div>
+                        </select><br />
+                        <label>Minimum Price: </label><br />
+                            <input type="number" className="restaurantsInput" name="minprice" onChange={this.onChange} value={this.state.minprice} /><br />
                         <label>Maximum Price: </label><br />
-                        <input type="number" name="maxprice" onChange={this.onChange} value={this.state.maxprice} />
-
-                    <br />
-                    <button type="submit">Submit</button>
+                            <input type="number" className="restaurantsInput" name="maxprice" onChange={this.onChange} value={this.state.maxprice} />
+                        <br />
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         )

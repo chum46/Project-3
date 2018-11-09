@@ -1,5 +1,4 @@
 import { FETCH_POSTS, NEW_POST, FETCH_EVENTS, FETCH_ACTIVITIES, FETCH_RESTAURANTS } from './types';
-// import API from "../utils/API";
 import axios from 'axios';
 require('dotenv').config()
 
