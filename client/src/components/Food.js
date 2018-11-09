@@ -23,13 +23,27 @@ class Restaurants extends Component {
     render() {
         console.log(this.props.restaurants);
         const foodItems = this.props.restaurants.map(restaurant => (
-            <div key={restaurant.restaurant.id}>
-                <span><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
-                {/* <span><img src={restaurant.restaurant.photos_url} alt=' ' height='100px' width='162px'></img></span> */}
-                <h3>{restaurant.restaurant.name}</h3>
-                <p>{_.get(restaurant, ['restaurant', 'location', 'address'], 'No address.')}</p>
-                <a href={restaurant.restaurant.url}>Website</a>
-                <hr />
+            <div key={restaurant.restaurant.id} className="card">
+                <div className="restaurantTop">
+                    <div className="restaurantImage">
+                        <span><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
+                    </div>
+                    {/* <span><img src={restaurant.restaurant.photos_url} alt=' ' height='100px' width='162px'></img></span> */}
+                    <div className="restaurantRating">
+                        <p>{restaurant.restaurant.user_rating.aggregate_rating}</p>
+                        <p>{restaurant.restaurant.user_rating.votes} votes</p>
+                    </div>
+                </div>
+                <div className="restaurantInfo">
+                    <h3>{restaurant.restaurant.name}</h3>
+                    <h4>{restaurant.restaurant.location.locality}</h4>
+                    <p>{_.get(restaurant, ['restaurant', 'location', 'address'], 'No address.')}</p>
+                    <hr />
+                    <p>CUISINES: {restaurant.restaurant.cuisines}</p>
+                    <p>COST FOR TWO: ${restaurant.restaurant.average_cost_for_two}</p>
+                    <hr />
+                    <a href={restaurant.restaurant.menu_url} className="button">VIEW MENU</a>
+                </div>
             </div>
         ));
         return (
