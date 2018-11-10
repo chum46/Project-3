@@ -35,17 +35,19 @@ class Postform extends Component {
             <div>
                 <h1>Add Date Idea</h1>
                 <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label>Title: </label><br />
-                        <input type="text" name="title" onChange={this.onChange} value={this.state.title} />
+                    <div className="card">
+                        <div>
+                            <label>Title: </label><br />
+                            <input type="text" name="title" onChange={this.onChange} value={this.state.title} />
+                        </div>
+                        <br />
+                        <div>
+                            <label>Idea: </label><br /><br />
+                            <textarea type="text" name="body" onChange={this.onChange} value={this.state.body} />
+                        </div>
+                        <br />
+                        <button type="submit">Submit</button>
                     </div>
-                    <br />
-                    <div>
-                        <label>Idea: </label><br />
-                        <textarea type="text" name="body" onChange={this.onChange} value={this.state.body} />
-                    </div>
-                    <br />
-                    <button type="submit">Submit</button>
                 </form>
             </div>
         )
