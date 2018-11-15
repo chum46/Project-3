@@ -63,7 +63,7 @@ export const createPost = (postData) => dispatch => {
 export const findEvents = (startDate, endDate, type, minPrice, maxPrice) => dispatch => {
     console.log('findEvents action called');
     console.log(startDate + " " + endDate);
-    const ticketmasterAPI = 'DO8XFAcuS9SZwVBx5SzGC7K6iGzojx6H';
+    const ticketmasterAPI = '';
     return axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?city=Chicago&apikey=${ticketmasterAPI}&startDateTime=${startDate}T05:30:00Z&endDateTime=${endDate}T04:30:00Z&size=100`)
         .then(response => dispatch({
             type: FETCH_EVENTS,
@@ -74,7 +74,7 @@ export const findEvents = (startDate, endDate, type, minPrice, maxPrice) => disp
 export const findFood = (startDate, endDate, cuisinesAPI, minPrice, maxPrice) => dispatch => {
     // console.log('findEvents action called');
     // console.log(startDate + " " + endDate);
-    const zomatoAPI = '0be6806a57e8ee8d90f82485a141bd85';
+    const zomatoAPI = '';
     console.log(cuisinesAPI);
     return axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=292&entity_type=city&cuisines=${cuisinesAPI}`, {
         headers: {
