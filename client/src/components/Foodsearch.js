@@ -39,7 +39,7 @@ class Foodsearch extends Component {
             <div>
                 <h1>Search Restaurants</h1>
                 <form onSubmit={this.onSubmit} className="food-form">
-                    <div className="card">
+                    <div className="food-form-card">
                         <label>Cuisine Type: </label><br />
                         <select type="text" name="type" onChange={this.onChange} value={this.state.type}>
                             <option value="0">select</option>

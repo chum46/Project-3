@@ -23,7 +23,7 @@ class Restaurants extends Component {
     render() {
         console.log(this.props.restaurants);
         const foodItems = this.props.restaurants.map(restaurant => (
-            <div key={restaurant.restaurant.id} className="card">
+            <div key={restaurant.restaurant.id} className="food-card">
                 <div className="restaurantTop">
                     <div className="restaurantImage">
                         <span><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
