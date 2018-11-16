@@ -14,15 +14,15 @@ body {
 }
 
 .App-header {
-  background-color:#13315c;
+  background-color:#041327;
   color: white;
-  border: solid;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  margin-bottom:2px;
 }
 
 .App-link {
@@ -40,7 +40,7 @@ button,
   font-weight: 600;
   line-height: 1.5;
   cursor: pointer;
-  background-color: #8da9c4;
+  background-color: #0b80ba;
   color: white;
   font-size: 16px;
   text-decoration: none;
@@ -49,15 +49,54 @@ button,
   border-style: solid;
   padding: 12px 22px;
   margin: 0px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #e7a7a9;
+button:hover,
+button:focus {
+  background: #bd645c;
 }
 
-.button:hover {
-  background-color: #e7a7a9;
+.navBar nav {
+  display: flex;
+}
+
+@media (max-width: 550px) {
+  .navBar nav {
+    flex-wrap: wrap;
+  }
+}
+
+.navBar nav a {
+  flex-basis: 20%;
+  width: 20%;
+  outline: none;
+  outline-style:none;
+}
+
+
+@media (min-width: 551px) {
+  .navBar nav a:not(:last-of-type) {
+    border-right: 1px solid #fff;
+  }
+}
+
+@media (max-width: 550px) {
+  .navBar nav a {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .navBar nav a:not(:last-of-type) {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+.navBar nav a button {
+  width: 100%;
+  white-space: nowrap;
+  padding: 1rem 5px;
+  outline: none;
+  outline-style:none;
 }
 
 .restaurantImage {
@@ -400,13 +439,39 @@ h1{
   margin-bottom: 2%;
   background-color: white;
   position: relative;
-  padding: 3%;
+  padding: 2rem;
   z-index: 2;
   overflow: hidden;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
   -webkit-animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
   animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+.event-form {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.event-form-card label {
+  color: #13315c;
+  font-weight: 600;
+}
+
+.event-form-card select {
+  font-size: 1rem;
+  margin: -10px 0 10px;
+}
+
+.event-form-card input {
+  font-family: Poppins, sans-serif;
+  margin: -10px 0 10px;
+}
+
+.event-form-card button {
+  width: 200px;
+  transition: all .2s ease;
+
 }
 
 /* food form */
@@ -471,7 +536,7 @@ h1{
 .event-card a:hover {
   color: white;
 }
-.event-card:hover .img {
+.event-card:hover .photo {
   -webkit-transform: scale(1.3) rotate(3deg);
           transform: scale(1.3) rotate(3deg);
 }
@@ -480,7 +545,7 @@ h1{
   z-index: 0;
   height: 200px;
 }
-.event-card .img {
+.event-card .photo {
   position: absolute;
   top: 0;
   right: 0;
@@ -491,7 +556,13 @@ h1{
   transition: -webkit-transform .2s;
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
-  background: #8da9c4;
+  /* background: #8da9c4; */
+}
+.event-card .photo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .event-card .details,
 .event-card .details ul {
@@ -550,7 +621,7 @@ h1{
 .event-card .description h2 {
   font-family: Poppins, sans-serif;
 }
-.event-card .description h3 {
+.event-card .description h1 {
   line-height: 1;
   margin: 0;
   font-size: 1.7rem;
