@@ -11,6 +11,7 @@ import Foodpage from "./pages/food/Foodpage";
 import Activitypage from "./pages/activity/Activitypage";
 import store from './store';
 import NoMatch from './pages/nomatch/NoMatch';
+import logo from './images/up2logo.png' // relative path to image 
 require("dotenv").config();
 
 class App extends Component {
@@ -20,9 +21,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <header className="App-header">
-              <p>
-                Up To You
-              </p>
+            <img src={logo} alt={"logo"}/> 
             </header>
             <Navbar />
             <Switch>

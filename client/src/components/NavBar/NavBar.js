@@ -13,7 +13,7 @@ class NavBar extends Component {
                 </Link>
                 <Link to="/food">
                     <button className="navBarButton" type="button">
-                        RESTAURANTS
+                        FOOD
                     </button>
                 </Link>
                 <Link to="/events">
@@ -28,7 +28,7 @@ class NavBar extends Component {
                 </Link>
                 <Link to="/memos">
                     <button className="navBarButton" type="button">
-                        MY IDEAS
+                        IDEAS
                     </button>
                 </Link>
             </nav>

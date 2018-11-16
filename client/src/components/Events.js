@@ -24,8 +24,28 @@ class Events extends Component {
         console.log(this.props.events);
         // https://lodash.com/docs/#get this is how we can pull from the props.events object
         const eventItems = this.props.events.map(event => (
-            <div key={event.id} class="description" className="event-card">
-                <span><img src={_.get(event, ['images', 0, 'url'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
+            
+            <div key={event.id} class="" className="">
+
+
+                <div class="event-card">
+                    <div class="meta">
+                        <div class="photo"><img src={_.get(event, ['images', 0, 'url'], 'No image.')} alt=' ' height='100px' width='162px'></img></div>
+                        <ul class="details">
+                            <li class="author">{_.get(event, ['classifications', 0, 'genre', 'name'], 'No genre.')} / {_.get(event, ['classifications', 0, 'subGenre', 'name'], 'No subGenre.')}</li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h1>{event.name}</h1>
+                        <h2>{event._embedded.venues[0].name} - {event._embedded.venues[0].city.name}, {event._embedded.venues[0].state.name}</h2>
+                        <h2>{event.dates.start.localDate} {event.dates.start.localTime}</h2>
+                        <p class="read-more">
+                            <a href="{event.url}">See Tickets</a>
+                        </p>
+                    </div>
+                </div>
+
+                {/* <span><img src={_.get(event, ['images', 0, 'url'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
                 <h3>{event.name}</h3>
                 <p>{event._embedded.venues[0].name} - {event._embedded.venues[0].city.name}, {event._embedded.venues[0].state.name}</p>
                 <p>{event.dates.start.localDate}</p>
@@ -33,7 +53,7 @@ class Events extends Component {
                 <hr />
                 <p>{_.get(event, ['classifications', 0, 'genre', 'name'], 'No genre.')} / {_.get(event, ['classifications', 0, 'subGenre', 'name'], 'No subGenre.')}</p>
                 <hr />
-                <a href={event.url} className="button">SEE TICKETS</a>
+                <a href={event.url} className="button">SEE TICKETS</a> */}
                 
             </div>
         ));
