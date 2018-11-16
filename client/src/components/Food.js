@@ -24,25 +24,28 @@ class Restaurants extends Component {
         console.log(this.props.restaurants);
         const foodItems = this.props.restaurants.map(restaurant => (
             <div key={restaurant.restaurant.id} className="food-card">
-                <div className="restaurantTop">
-                    <div className="restaurantImage">
-                        <span><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img></span>
+                <div class="meta" >
+                    <div class="photo"><img src={_.get(restaurant, ['restaurant', 'featured_image'], 'No image.')} alt=' ' height='100px' width='162px'></img>
                     </div>
                     {/* <span><img src={restaurant.restaurant.photos_url} alt=' ' height='100px' width='162px'></img></span> */}
-                    <div className="restaurantRating">
+                    <ul class="details">
+                        <li class="author">{restaurant.restaurant.cuisines}</li>
+                    </ul>
+                    {/* <div class="author" className="restaurantRating">
                         <p>{restaurant.restaurant.user_rating.aggregate_rating}</p>
                         <p>{restaurant.restaurant.user_rating.votes} votes</p>
-                    </div>
+                    </div> */}
                 </div>
-                <div className="restaurantInfo">
-                    <h3>{restaurant.restaurant.name}</h3>
-                    <h4>{restaurant.restaurant.location.locality}</h4>
-                    <p>{_.get(restaurant, ['restaurant', 'location', 'address'], 'No address.')}</p>
-                    <hr />
-                    <p>CUISINES: {restaurant.restaurant.cuisines}</p>
-                    <p>COST FOR TWO: ${restaurant.restaurant.average_cost_for_two}</p>
-                    <hr />
-                    <a href={restaurant.restaurant.menu_url} className="button">VIEW MENU</a>
+                <div class="description">
+                    <h1>{restaurant.restaurant.name}</h1>
+                    <h2>{restaurant.restaurant.location.locality}</h2>
+                    <h2>{_.get(restaurant, ['restaurant', 'location', 'address'], 'No address.')}</h2>
+                    <h2>COST FOR TWO: ${restaurant.restaurant.average_cost_for_two}</h2>
+                    {/* <p>CUISINES: {restaurant.restaurant.cuisines}</p> */}
+                    {/* <p>COST FOR TWO: ${restaurant.restaurant.average_cost_for_two}</p> */}
+                    <p class="read-more">
+                        <a href={restaurant.restaurant.menu_url} >View Menu</a>
+                    </p>
                 </div>
             </div>
         ));
