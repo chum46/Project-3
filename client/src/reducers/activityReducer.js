@@ -3,7 +3,7 @@
 
 import { FETCH_ACTIVITIES } from '../actions/types';
 
-// Initial stat is an object 
+// Initial state is an object 
 const initialState = {
     // items array that represents the activities that come in from our action
     items: [],
@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
     // can add other stuff as well but has to have a type
     switch(action.type) {
         case FETCH_ACTIVITIES:
-            console.log('reducer');
+            console.log('reducer', action.payload);
             return {
                 // spread operator "..." sends current state
                 ...state,

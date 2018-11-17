@@ -1,9 +1,10 @@
 import { FETCH_POSTS, NEW_POST, FETCH_EVENTS, FETCH_ACTIVITIES, FETCH_RESTAURANTS } from './types';
 import axios from 'axios';
-require('dotenv').config()
 
 // The thunk middleware allows us to call the dispatch function directly
 // so that we can make asynchronous requests
+
+
 export const fetchPosts = () => dispatch => {
     // console.log('fetching');
     // Think of dispatch as a resolver or a promise
@@ -22,20 +23,40 @@ export const fetchPosts = () => dispatch => {
 
 };
 
-export const fetchAcivities = () => dispatch => {
-    
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(res => res.json())
-        // .then(data => this.setState({posts: data}));
-        .then(activities =>
+export const fetchActivities = () => dispatch => {
+    // fetch to backend to get activity data
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    //     .then(res => res.json())
+    //     .then(activities =>
+    //         dispatch({
+    //             type: FETCH_ACTIVITIES,
+    //             payload: activities
+    //         })
+    //     );
+    // ------------------------------------------------------------------------------------------------
+    // fetch('/api/books', {
+    //     method: 'POST',
+    // })
+    //     .then(res => {
+    //         res.json()
+    //         console.log("testing")
+    //     })
+    //     .then(activity =>
+    //                 dispatch({
+    //                     type: FETCH_ACTIVITIES,
+    //                     payload: activity
+    //                 })
+    //             )
+    console.log('fetching activities')
+    axios.get("/api/books")
+    .then(activity =>
+        {
+            console.log('in the postActions: ', activity.data);
             dispatch({
                 type: FETCH_ACTIVITIES,
-                // Whatever data is coming in with the type we can call 
-                // payload or whatever we want
-                payload: activities
-            })
-        );
-
+                payload: activity.data
+                })
+            });
 };
 
 export const createPost = (postData) => dispatch => {
