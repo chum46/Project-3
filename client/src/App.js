@@ -11,7 +11,7 @@ import Foodpage from "./pages/food/Foodpage";
 import Activitypage from "./pages/activity/Activitypage";
 import store from './store';
 import NoMatch from './pages/nomatch/NoMatch';
-import logo from './images/up2logo.png' // relative path to image 
+import logo from './images/Uptoyou_v1.5.png' // relative path to image 
 require("dotenv").config();
 
 class App extends Component {
